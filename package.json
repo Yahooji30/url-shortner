@@ -4,7 +4,8 @@
   "description": "create short url from long url using url shortner",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "index.js",
+    "start": "node index.js"
   },
   "keywords": [
     "url",
