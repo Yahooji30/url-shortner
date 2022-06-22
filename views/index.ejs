@@ -24,6 +24,13 @@
             </div>
         </section>
         <%- include('_footer') %>
+            <script>
+                const urlText = document.querySelector('#shorturl')
+                function copy() {
+                    console.log(urlText.innerText)
+                    navigator.clipboard.writeText(`https://${urlText.innerText}`)
+                }
+            </script>
 </body>
 
 </html>
