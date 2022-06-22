@@ -16,6 +16,7 @@ function normalURL(req, res, next) {
 }
 
 router.get("/", (req, res) => {
+  console.log(req.hostname);
   res.render("index");
 });
 
