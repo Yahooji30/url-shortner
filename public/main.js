@@ -27,8 +27,9 @@ function loadURLs() {
   console.log(array);
   const historyBox = document.querySelector("#historyBox");
   let str = "";
-  array.forEach((element) => {
-    str += `
+  if (array) {
+    array.forEach((element) => {
+      str += `
         <div class="py-3 md:py-4 md:px-4">
                 <div class="flex justify-between items-center gap-x-3">
                     <a href="https://shtner.herokuapp.com/${element.shortCode}" target="_blank" id="shorturl" class="text-blue-800 text-md md:text-2xl">shtner.herokuapp.com/${element.shortCode}
@@ -44,6 +45,12 @@ function loadURLs() {
                 </p>
             </div>
         `;
-  });
+    });
+  } else {
+    str = `
+    <div class="w-full h-full flex justify-center items center">
+        <img src="../images/404.svg" alt="not found" class="w-64"/>
+    </div>`;
+  }
   historyBox.innerHTML = str;
 }
