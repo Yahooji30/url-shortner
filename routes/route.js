@@ -2,6 +2,7 @@ import express from "express";
 import shortUrl from "../model/urlModel.js";
 import shortUniqueId from "short-unique-id";
 import normalizeURL from "normalize-url";
+import localStorage, { LocalStorage } from "node-localstorage";
 const router = express.Router();
 
 function generateShortID(req, res, next) {
@@ -16,7 +17,11 @@ function normalURL(req, res, next) {
 }
 
 router.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", { title: "URL Shortner" });
+});
+
+router.get("/history", (req, res) => {
+  res.render("history", { title: "URL History" });
 });
 
 router.post("/", generateShortID, normalURL, async (req, res) => {
@@ -26,7 +31,11 @@ router.post("/", generateShortID, normalURL, async (req, res) => {
 
   if (foundURL) {
     console.log("Found");
-    res.render("index", { shortCode: foundURL.shortCode });
+    res.render("index", {
+      fullURL: req.body.url,
+      shortCode: foundURL.shortCode,
+      title: "URL Shortner",
+    });
   } else {
     console.log("Added");
     const newUrl = new shortUrl({
@@ -34,7 +43,11 @@ router.post("/", generateShortID, normalURL, async (req, res) => {
       fullURL: req.body.url,
     });
     await newUrl.save();
-    res.render("index", { shortCode: req.body.shortCode });
+    res.render("index", {
+      fullURL: req.body.url,
+      shortCode: req.body.shortCode,
+      title: "URL Shortner",
+    });
   }
 });
 

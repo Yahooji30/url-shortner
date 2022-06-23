@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('headTag')%>
+
+    <body class="w-full relative h-[90vh] md:h-screen bg-[#fffcef]" onload="loadURLs()">
+
+        <style>
+            .bg-img {
+                background-image: url('../images/bg1.png');
+            }
+        </style>
+        <header class="w-full h-38 px-[5%] sticky top-0">
+            <div class="flex justify-between items-center p-2 py-5">
+                <a href="/" class="flex items-center justify-center md:justify-start gap-x-3 py-1 bg-[#fffcef]">
+                    <img src="../images/logo.png" alt="logo" class="w-6 md:w-9">
+                    <img src="../images/logo-text.png" alt="" class="w-28 md:w-36">
+                </a>
+            </div>
+        </header>
+        <div class="absolute opacity-100  md:opacity-80 -z-10 inset-0 bg-img hover:scale-1"></div>
+        <section class="w-full h-auto flex flex-col items-center py-[8%] md:py-[0.5%]">
+            <div class="w-[90%] md:w-[50%] ">
+                <h3 class="text-[#384949] text-xl md:text-3xl font-semibold pb-2 md:pb-5 justify-start">Your History
+                </h3>
+                <div class="px-3 py-2 bg-white w-full shadow-lg rounded divide-y-2 h-[35rem] overflow-y-auto" id="historyBox">
+
+                </div>
+            </div>
+            </div>
+        </section>
+        <%- include('_footer') %> 
+        <script src="../public/main.js"></script>
+    </body>
+
+
+</html>

@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 5500;
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 server.use("/images", express.static("images"));
+server.use("/public", express.static("public"));
 server.set("view engine", "ejs");
 
 mongoose.Promise = global.Promise;

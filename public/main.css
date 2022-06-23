@@ -1,0 +1,6 @@
+.bg-img {
+  background-image: url("../images/bg1.png");
+}
+::-webkit-scrollbar{
+    display: none;
+}
