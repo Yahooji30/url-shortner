@@ -1,4 +1,5 @@
 const urlText = document.querySelector("#shorturl");
+
 function addURL(shortCode, fullURL) {
   const data = {
     shortCode: shortCode,
@@ -39,6 +40,7 @@ function loadURLs() {
                         onclick="copy('https://shtner.herokuapp.com/${element.shortCode}')">
                         <img src="../images/copy.png" alt="copy" class="w-6 h-6" />
                     </button>
+                    
                 </div>
                 <p class="truncate text-sm text-gray-500 mt-1.5 pr-12">
                     ${element.fullURL}
